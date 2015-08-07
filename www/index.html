@@ -35,21 +35,15 @@
         </label>
       </div>
       
-      <ion-content class="has-subheader">
+      <ion-content ng-controller="ListController"class="has-subheader">
         <ion-list>
-          <ion-item class="item-thumbnail-left">   
-            <img src="http://placehold.it/100x100" alt="Photo">
-            <h2>Name</h2>
-            <h3>Reknown</h3>
-            <p>This is the test that doesn't have any meaning but it should be continued as long as the writer wants to prolong it. </p>
+          <ion-item ng-repeat='item in artists'class="item-thumbnail-left">   
+            <img src="{{item.image}}" alt="Photo">
+            <h2>{{item.name}}</h2>
+            <h3>{{item.reknown}}</h3>
+            <p>{{item.bio}}</p>
           </ion-item>
-
-          <ion-item class="item-thumbnail-left item-text-wrap">   
-            <img src="http://placehold.it/100x100" alt="Photo">
-            <h2>Name2</h2>
-            <h3>Reknown2</h3>
-            <p>This is the test that doesn't have any meaning but it should be continued as long as the writer wants to prolong it. </p>
-          </ion-item>   
+   
         </ion-list>  
       </ion-content>
     </ion-pane>
