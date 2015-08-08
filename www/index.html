@@ -31,17 +31,20 @@
       <div class="bar bar-subheader item-input-inset bar-light">
         <label class="item-input-wrapper">
           <i class="icon ion-search placeholder-icon"></i>
-          <input type="search" placeholder="search">
+          <input type="search" ng-model="query" placeholder="search">
         </label>
       </div>
       
       <ion-content ng-controller="ListController"class="has-subheader">
         <ion-list>
-          <ion-item ng-repeat='item in artists'class="item-thumbnail-left">   
+          <ion-item ng-repeat='item in artists | filter:query'class="item-thumbnail-left item-text-wrap">   
             <img src="{{item.image}}" alt="Photo">
             <h2>{{item.name}}</h2>
             <h3>{{item.reknown}}</h3>
-            <p>{{item.bio}}</p>
+            <p>
+                {{item.bio | limitTo: 100}}
+                {{item.bio.length > 150 ? '&hellip;':''}}
+            </p>
           </ion-item>
    
         </ion-list>  
