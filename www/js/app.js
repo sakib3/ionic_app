@@ -24,7 +24,14 @@ angular.module('starter', ['ionic'])
     $scope.onItemDelete = function(item){
       var deleteItemIndex = $scope.artists.indexOf(item);
       $scope.artists.splice(deleteItemIndex,1);
-    }
+    };
+    $scope.doRefresh = function(){
+      $http.get('js/data.json').success(function(data){
+        $scope.artists = data;
+        // 
+        $scope.$broadcast('scroll.refreshComplete');
+      });
+    };
     $scope.toggleStar = function(item){
       item.star = !item.star;
     };

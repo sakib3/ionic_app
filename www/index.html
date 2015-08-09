@@ -38,7 +38,10 @@
       </div>
       
       <ion-content class="has-subheader">
-        <ion-list show-delete="data.showDelete" show-reorder="data.showReorder">
+        <ion-refresher on-refresh="doRefresh()">
+        </ion-refresher>
+        <ion-list 
+                  show-delete="data.showDelete" show-reorder="data.showReorder">
           <ion-item ng-class="{'star': item.star}" ng-repeat='item in artists | filter:query' class="item-thumbnail-left item-icon-right item-text-wrap">   
             <img ng-src="{{item.image}}" alt="{{item.shortname}}Photo">
             <h2>{{item.name}}</h2>
